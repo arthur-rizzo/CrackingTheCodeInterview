@@ -284,7 +284,9 @@ namespace CrackingTheCodeInterview._01._Array_And_Strings
 		public static bool IsRotation(string s1, string s2)
 		{
 			string comparerString = s2 + s2;
-			return s1.Length == s2.Length && comparerString.Contains(s1);
+			return 
+				s1.Length == s2.Length &&
+				comparerString.Contains(s1);
 		}
 	}
 }
