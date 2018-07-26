@@ -15,8 +15,8 @@ namespace CrackingTheCodeInterview._01._Array_And_Strings
 
 			HashSet<int> values = new HashSet<int>();
 
-			Node<int> p1 = list.Head;
-			Node<int> p2 = p1.Next;
+			Structures.MyLinkedListNode<int> p1 = list.Head;
+			Structures.MyLinkedListNode<int> p2 = p1.Next;
 
 			values.Add(p1.Value);
 
@@ -56,7 +56,7 @@ namespace CrackingTheCodeInterview._01._Array_And_Strings
 			return x.Value;
 		}
 
-		public static void DeleteMiddleNode(Node<int> node)
+		public static void DeleteMiddleNode(Structures.MyLinkedListNode<int> node)
 		{
 			if (node == null || node.Next == null)
 				throw new ArgumentException();
@@ -67,8 +67,8 @@ namespace CrackingTheCodeInterview._01._Array_And_Strings
 
 		public static void Partition(SingleLinkedList<int> list, int value)
 		{
-			Node<int> previousNode = null;
-			Node<int> head = list.Head;
+			Structures.MyLinkedListNode<int> previousNode = null;
+			Structures.MyLinkedListNode<int> head = list.Head;
 			var currentNode = list.Head;
 
 			while(currentNode != null)
@@ -114,7 +114,7 @@ namespace CrackingTheCodeInterview._01._Array_And_Strings
 			var e2 = b.Head;
 			bool carryOver = false;
 
-			Node<int> currentNode = null;
+			Structures.MyLinkedListNode<int> currentNode = null;
 			do
 			{
 				int sum = 0;
@@ -136,7 +136,7 @@ namespace CrackingTheCodeInterview._01._Array_And_Strings
 					newNodeValue = sum % 10;
 				}
 
-				Node<int> n = new Node<int>(newNodeValue);
+				Structures.MyLinkedListNode<int> n = new Structures.MyLinkedListNode<int>(newNodeValue);
 				if (currentNode == null)
 					result.Head = n;
 				else
@@ -182,23 +182,23 @@ namespace CrackingTheCodeInterview._01._Array_And_Strings
 			return result;
 		}
 
-		public static Node<int> Intersection(SingleLinkedList<int> a, SingleLinkedList<int> b)
+		public static MyLinkedListNode<int> Intersection(SingleLinkedList<int> a, SingleLinkedList<int> b)
 		{
-			int aLenght; Node<int> aLastElement;
+			int aLenght; Structures.MyLinkedListNode<int> aLastElement;
 			GetLengthAndLastElement(a, out aLenght, out aLastElement);
 
-			int bLenght; Node<int> bLastElement;
+			int bLenght; Structures.MyLinkedListNode<int> bLastElement;
 			GetLengthAndLastElement(b, out bLenght, out bLastElement);
-			
-			Node<int> intersection = null;
+
+			Structures.MyLinkedListNode<int> intersection = null;
 
 			//Significa que há interseção, pois o ultimo elemento é o mesmo
 			if(object.ReferenceEquals(aLastElement, bLastElement))
 			{
 				//resta achar o elemento
 				//If the lists have different sizes, skips X nodes on the longer list, where X is the size difference
-				Node<int> aNode = a.Head;
-				Node<int> bNode = b.Head;
+				Structures.MyLinkedListNode<int> aNode = a.Head;
+				Structures.MyLinkedListNode<int> bNode = b.Head;
 
 				if (aLenght > bLenght)
 					for (int i = 0; i < aLenght - bLenght; i++)
@@ -222,7 +222,7 @@ namespace CrackingTheCodeInterview._01._Array_And_Strings
 
 			return intersection;
 		}
-		private static void GetLengthAndLastElement(SingleLinkedList<int> a, out int aLenght, out Node<int> aLastElement)
+		private static void GetLengthAndLastElement(SingleLinkedList<int> a, out int aLenght, out Structures.MyLinkedListNode<int> aLastElement)
 		{
 			aLenght = 0;
 			var aNode = a.Head;
@@ -237,11 +237,11 @@ namespace CrackingTheCodeInterview._01._Array_And_Strings
 			}
 		}
 
-		public Node<int> LoopDetection(SingleLinkedList<int> list)
+		public MyLinkedListNode<int> LoopDetection(SingleLinkedList<int> list)
 		{
-			Node<int> result = null;
+			Structures.MyLinkedListNode<int> result = null;
 
-			HashSet<Node<int>> visitedNodes = new HashSet<Node<int>>();
+			HashSet<Structures.MyLinkedListNode<int>> visitedNodes = new HashSet<Structures.MyLinkedListNode<int>>();
 			var currentNode = list.Head;
 			while(currentNode != null)
 			{
@@ -260,7 +260,7 @@ namespace CrackingTheCodeInterview._01._Array_And_Strings
 			return result;
 		}
 
-		public Node<int> LoopDetectionWithoutSpace(SingleLinkedList<int> list)
+		public MyLinkedListNode<int> LoopDetectionWithoutSpace(SingleLinkedList<int> list)
 		{
 			//based on Floyd loop detection algorithm
 			var slow = list.Head;

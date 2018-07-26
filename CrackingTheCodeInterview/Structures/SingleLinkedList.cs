@@ -9,14 +9,14 @@ namespace CrackingTheCodeInterview.Structures
 		public SingleLinkedList() { }
 		public SingleLinkedList(T headValue)
 		{
-			Head = new Node<T>(headValue);
+			Head = new MyLinkedListNode<T>(headValue);
 		}
-		public SingleLinkedList(Node<T> head)
+		public SingleLinkedList(MyLinkedListNode<T> head)
 		{
 			Head = head;
 		}
 
-		public Node<T> Head { get; set; }
+		public MyLinkedListNode<T> Head { get; set; }
 
 		public override string ToString()
 		{
@@ -32,13 +32,13 @@ namespace CrackingTheCodeInterview.Structures
 		}
 	}
 
-	public class Node<T>
+	public class MyLinkedListNode<T>
 	{
 		public T Value { get; set; }
 
-		public Node<T> Next { get; set; }
+		public MyLinkedListNode<T> Next { get; set; }
 
-		public Node(T value)
+		public MyLinkedListNode(T value)
 		{
 			Value = value;
 		}

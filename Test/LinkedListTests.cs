@@ -152,11 +152,11 @@ namespace Test
 
 			if (split.Length > 0)
 			{
-				Node<int> head = new Node<int>(int.Parse(split[0]));
+				MyLinkedListNode<int> head = new MyLinkedListNode<int>(int.Parse(split[0]));
 				var current = head;
 				for (int i = 1; i < split.Length; i++)
 				{
-					Node<int> node = new Node<int>(int.Parse(split[i]));
+					MyLinkedListNode<int> node = new MyLinkedListNode<int>(int.Parse(split[i]));
 					current.Next = node;
 					current = node;
 				}

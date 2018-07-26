@@ -7,7 +7,7 @@ namespace CrackingTheCodeInterview.Structures
     public class StackMinTracking
     {
 		//first value is the value of node.. second is minimum of substack
-		Node<Tuple<int,int>> headElement = null;
+		MyLinkedListNode<Tuple<int,int>> headElement = null;
 
 		public StackMinTracking()
 		{
@@ -21,7 +21,7 @@ namespace CrackingTheCodeInterview.Structures
 			if (previousHead != null && minValue > previousHead.Value.Item2)
 				minValue = previousHead.Value.Item2;
 
-			headElement = new Node<Tuple<int, int>>(new Tuple<int, int>(value, minValue));
+			headElement = new MyLinkedListNode<Tuple<int, int>>(new Tuple<int, int>(value, minValue));
 			headElement.Next = previousHead;
 		}
 
