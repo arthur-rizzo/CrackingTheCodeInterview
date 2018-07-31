@@ -12,8 +12,44 @@ namespace CrackingTheCodeInterview.Structures
 		}
 		public int Value { get; set; }
 
-		public TreeNode Left { get; set; }
+		private TreeNode left;
+		public TreeNode Left
+		{
+			get
+			{
+				return left;
+			}
+			set
+			{
+				if(left != null)
+					left.Parent = null;
 
-		public TreeNode Right { get; set; }
+				left = value;
+
+				if(value != null)
+					left.Parent = this;
+			}
+		}
+
+		private TreeNode right;
+		public TreeNode Right
+		{
+			get
+			{
+				return right;
+			}
+			set
+			{
+				if (right != null)
+					right.Parent = null;
+
+				right = value;
+
+				if (value != null)
+					right.Parent = this;
+			}
+		}
+
+		public TreeNode Parent { get; set; }
 	}
 }
